@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "JP Live Meeting Translator",
+  "version": "0.9.4",
+  "description": "Faster interviewee-only Japanese-to-English translation with incremental question extraction and local PLaMo Q3_K_M.",
+  "permissions": [
+    "storage",
+    "windows"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*",
+    "https://*.zoom.us/*",
+    "http://127.0.0.1:8785/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "Open JP Live Translator"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://meet.google.com/*",
+        "https://*.zoom.us/*"
+      ],
+      "js": [
+        "src/caption-utils.js",
+        "src/speaker-utils.js",
+        "src/utterance-utils.js",
+        "src/meet-caption-engine.js",
+        "src/interview-processor.js",
+        "src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}

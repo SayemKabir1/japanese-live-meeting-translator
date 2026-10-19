@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible bug without sharing private meeting data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the behavior. Do not include private transcripts or recordings.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model quantization (for example Q3_K_M or Q4_K_S)
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      description: Remove names, transcript text, file paths, and other identifying details.
+    validations:
+      required: false

@@ -1,0 +1,25 @@
+# Automated validation report — v0.9.4 public candidate
+
+This report describes source-level and synthetic test coverage. It does not certify accuracy or latency on a live meeting.
+
+Checks performed in the build environment before publication prep:
+- JavaScript syntax checks for extension source and test files: passed.
+- Python compilation for bridge/test modules: passed.
+- Caption utility tests: 10/10 passed.
+- Meet caption engine tests: 2/2 passed.
+- Speaker filtering tests: 5/5 passed.
+- Utterance utility tests: 6/6 passed.
+- Interview processor and stability regressions: passed.
+- Fast question streaming regression: passed.
+- Supplied-video-inspired synthetic caption regression: 5/5 cases passed.
+- Stress test: 100/100 sequences and 200 distinct questions validated.
+- Queue, protocol and popup-window tests: passed.
+- Bridge unit and HTTP integration tests: passed.
+- Manifest and archive validation: passed.
+
+Public-release cleanup additionally removes test logs, replaces personal names in synthetic fixtures, uses portable `llama-server.exe` discovery, avoids killing unrelated model processes, restricts bridge CORS to Chrome extension origins, and avoids logging transcript contents.
+
+Limitations:
+- The model was not run in this build environment; latency depends on user hardware and quantization.
+- Synthetic DOM tests cannot guarantee compatibility with every current Google Meet/Zoom DOM.
+- Translation quality must be benchmarked against real, consented sample sentences before production use.

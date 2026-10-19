@@ -1,0 +1,13 @@
+<!doctype html>
+<html><body>
+<script>
+window.chrome={runtime:{_listeners:[],onMessage:{addListener(fn){window.chrome.runtime._listeners.push(fn)}},sendMessage(){return Promise.resolve({ok:true})}}};
+</script>
+<script src="../extension/translator-window.js"></script>
+<script>
+setTimeout(()=>{
+  for(const fn of chrome.runtime._listeners) fn({type:'SHOW_TRANSLATION',item:{speaker:'Interviewee',original:'これは長い日本語の質問です。面接について、これまでの経験と今後の目標について詳しく教えていただけますか？',translation:'This is a long interview question. Could you please explain your previous experience and your goals for the future in detail?',latencyMs:1550,time:Date.now()}});
+},20);
+setTimeout(()=>window.close(),150);
+</script>
+</body></html>

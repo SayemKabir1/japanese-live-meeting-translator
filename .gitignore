@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local model weights/cache (never commit multi-GB models)
+models/
+*.gguf
+*.bin
+*.safetensors
+.cache/
+huggingface/
+
+# Logs, captures, and local output
+*.log
+*.trace
+*.mp4
+*.webm
+*.wav
+*.mp3
+results.json
+chromium_stderr.txt
+ui_dump.html
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
